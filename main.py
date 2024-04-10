@@ -33,12 +33,11 @@ filtered_df = df.copy()
 if car_name:
     filtered_df = filtered_df[filtered_df['Car_Name'].str.contains(car_name,case = False)]
     print(filtered_df.head())
-# if options:
-#     filtered_df = filtered_df[filtered_df['Transmission'].isin(options)]
-# if year:
-#     filtered_df = filtered_df[(filtered_df['Year'] >= year[0]) & (filtered_df['Year'] <= year[1])]
-# if values:
-#     filtered_df = filtered_df[(filtered_df['Selling_Price'] >= values[0]) & (filtered_df['Selling_Price'] <= values[1])]
-@st.cache
+if options:
+  filtered_df = filtered_df[filtered_df['Transmission'].isin(options)]
+if year:
+  filtered_df = filtered_df[(filtered_df['Year'] >= year[0]) & (filtered_df['Year'] <= year[1])]
+if values:
+  filtered_df = filtered_df[(filtered_df['Selling_Price'] >= values[0]) & (filtered_df['Selling_Price'] <= values[1])]
 if button:
     st.write(filtered_df)
